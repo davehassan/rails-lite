@@ -13,12 +13,11 @@ module Phase9
     end
 
     def [](key)
-      str_key = key.to_s
-      @now[str_key]
+      [@now[key.to_sym],@now[key.to_s]].compact.first
     end
 
     def []=(key, val)
-      @flash[key.to_s] = val
+      @flash[key] = val
     end
 
     def each(&prc)

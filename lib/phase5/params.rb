@@ -18,8 +18,7 @@ module Phase5
     end
 
     def [](key)
-      str_key = key.to_s
-      @params[str_key]
+      [@params[key.to_s],@params[key.to_sym]].compact.first
     end
 
     # this will be useful if we want to `puts params` in the server log
