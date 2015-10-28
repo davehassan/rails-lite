@@ -10,7 +10,6 @@ module Phase3
     # pass the rendered html to render_content
     def render(template_name)
       controller_name = self.class.to_s.underscore
-      app_root =
       template_path = "views/#{controller_name}/#{template_name}.html.erb"
       file_contents = File.read(template_path)
       content = ERB.new(file_contents).result(binding)
