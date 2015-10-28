@@ -13,17 +13,17 @@ module Phase9
     end
 
     def [](key)
-      @flash[key]
+      str_key = key.to_s
+      @now[str_key]
     end
 
     def []=(key, val)
-      @flash[key] = val
+      @flash[key.to_s] = val
     end
 
     def each(&prc)
       @flash.merge(@now).each(&prc)
     end
-
 
     def store_flash(session)
       session["flash"] = @flash
