@@ -7,7 +7,16 @@ module Phase9
 
     def flash
       @flash ||= Flash.new(session)
-      @flash.store_flash
+    end
+
+    def render_content(content, content_type)
+      flash.store_flash(self.session)
+      super
+    end
+
+    def redirect_to(url)
+      flash.store_flash(self.session)
+      super
     end
   end
 
